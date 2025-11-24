@@ -1,0 +1,13 @@
+# Data handling
+pandas>=1.5.0
+numpy>=1.25.0
+
+# Visualization
+matplotlib>=3.8.0
+seaborn>=0.12.2
+
+sqlalchemy>=2.0.20
+pymysql>=1.1.1   
+
+# Testing
+pytest>=7.3.0
