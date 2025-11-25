@@ -32,24 +32,23 @@ This project is intentionally built using functional programming concepts:
 
 📦 functional-data-pipeline
 │
-├── data/row                       # Input datasets
+├── data/                          # Input datasets
 │   ├── sample.csv
 │   └── sample.json
 │
 ├── src/
-│   ├── __init__.py             
+│   ├── __init__.py
 │   ├── load_data.py               # CSV/JSON loading functions
 │   ├── clean_data.py              # Missing data handling + standardization
-│   ├── transform_data.py          # Filter, compute new columns, aggregation
-│   ├── analyze_data.py            # Statistical + correlation functions
-│   ├── visualize_data.py          # Produce charts
-│   ├── output_data.py             # Save output CSV/JSON
-│   └── utils.py                   # Utility functions (ex.display_dataset_info)      
+│   ├── transform_data.py          # Row filtering, new columns, aggregation
+│   ├── analyze_data.py            # Statistical summaries + correlations
+│   ├── visualize_data.py          # Data visualizations (optional)
+│   ├── output_data.py             # Export cleaned/transformed data
+│   └── utils.py                   # Utility helpers (e.g., dataset info)
 │
-├── test/            
-│   └── testing.py                 # Tesing Pipeline
+├── test/
+│   └── testing.py                 # Pipeline tests
 │
 ├── main.py                        # Pipeline entry point
-├── requirements.txt               # Required packags
-└── README.md                      # Documentation
-
+├── requirements.txt               # Required packages
+└── README.md                      # Project documentation
