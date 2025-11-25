@@ -3,7 +3,10 @@ import sqlite3
 from typing import Callable
 
 def load_csv(path: str) -> pd.DataFrame:
-    return pd.read_csv(path)
+    try:
+        return pd.read_csv(path, encoding='utf-8')
+    except UnicodeDecodeError:
+        return pd.read_csv(path, encoding='latin-1')
 
 def load_json(path: str) -> pd.DataFrame:
     return pd.read_json(path)
