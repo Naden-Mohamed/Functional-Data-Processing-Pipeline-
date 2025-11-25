@@ -29,3 +29,25 @@ This project is intentionally built using functional programming concepts:
 * Function Composition
 
   - Complex operations are built by combining smaller functions together into a pipeline.
+
+### 🛠 How to Run
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Naden-Mohamed/Functional-Data-Processing-Pipeline-.git
+cd Functional-Data-Processing-Pipeline-
+```
+
+### 2. Install dependencies
+```bash
+pip install -r requirements.txt 
+```
+
+### 3. Place your datasets
+
+Put your datasets in `data/raw/.`
+
+### 4. Run the pipeline
+```bash
+python main.py
+```
