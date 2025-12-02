@@ -1,38 +1,21 @@
-# src/output.py
-from typing import Any
-import pandas as pd
-
-# -------------------------
-# Pure functions (build strings)
-# -------------------------
-
 def build_text_block(title: str, content: str) -> str:
-    """Pure: build a formatted string block."""
-    return f"\n===== {title} =====\n{content}\n====================\n"
+    """Build formatted text block."""
+    return f"\n=== {title} ===\n{content}\n"
 
-
-def build_dataframe_block(df: pd.DataFrame, title: str) -> str:
-    """Pure: convert DataFrame to a printable text block."""
-    return build_text_block(title, df.to_string())
-
+def build_dataframe_block(df, title: str) -> str:
+    """Build text block for DataFrame."""
+    return f"\n=== {title} ===\n{df.to_string()}\n"
 
 def build_dict_block(d: dict, title: str) -> str:
-    """Pure: build display text from dictionary."""
-    import json
-    pretty = json.dumps(d, indent=2, default=str)
-    return build_text_block(title, pretty)
+    """Build text block for dictionary."""
+    lines = [f"{k}: {v}" for k, v in d.items()]
+    return f"\n=== {title} ===\n" + "\n".join(lines) + "\n"
 
+def print_block(block: str):
+    """Side effect: print block."""
+    print(block)
 
-# -------------------------
-# Side-effect functions (print & save)
-# -------------------------
-
-def print_block(text: str) -> None:
-    """Print to console (side effect)."""
-    print(text)
-
-
-def save_block(text: str, filename: str = "output_report.txt") -> None:
-    """Append text to a file (side effect)."""
+def save_block(block: str, filename: str):
+    """Side effect: save block to file."""
     with open(filename, "a", encoding="utf-8") as f:
-        f.write(text + "\n")
+        f.write(block + "\n")

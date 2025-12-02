@@ -1,12 +1,11 @@
-# src/utils.py
-from typing import Dict, Any
 import pandas as pd
+from typing import Dict, Any
 
 def get_data_info(df: pd.DataFrame) -> Dict[str, Any]:
-    """Return a small info dict about the DataFrame (pure)."""
+    """Return info about DataFrame: shape, dtypes, missing, head."""
     return {
-        "shape": {"rows": int(df.shape[0]), "columns": int(df.shape[1])},
-        "dtypes": {k: str(v) for k, v in df.dtypes.to_dict().items()},
-        "missing_values": {k: int(v) for k, v in df.isna().sum().to_dict().items()},
+        "shape": {"rows": df.shape[0], "columns": df.shape[1]},
+        "dtypes": df.dtypes.to_dict(),
+        "missing_values": df.isna().sum().to_dict(),
         "head": df.head().to_dict(orient="records")
     }
