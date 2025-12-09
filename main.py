@@ -1,5 +1,7 @@
 from src.load_data import load_data
 from src.clean_data import auto_handle_missing
+from src.visualize_data import build_visuals, show_and_save_plots
+
 from src.analyze_data import (
     dataset_overview,
     calculate_summary_stats,
@@ -52,5 +54,18 @@ def main():
     # Print & save functionally using map
     list(map(lambda b: (print_block(b), save_block(b, "clean_output.csv ")), blocks))
 
+    tasks = [
+        {"type": "line", "x": "Sales", "y": "Profit"},
+        {"type": "bar", "column": "Category"},
+        {"type": "hist", "column": "Sales"},
+        {"type": "scatter", "x": "Sales", "y": "Profit"}
+    ]
+
+    figures = build_visuals(tasks, results["cleaned_df"])
+
+    # Save charts
+    show_and_save_plots(figures)
+
+    
 if __name__ == "__main__":
     main()
